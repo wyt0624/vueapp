@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <table>
+                <tbody>
+                    <tr is="counter" :count= "1"></tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            Vue.component("counter",{
+                data: function(){
+                    return {
+                        count1: "this is content1"
+                    }
+                },
+                props: ['count'],
+                template: '<div>{{count1}} + {{count}}</div>',
+            })
+
+            var vm = new Vue({
+                el: '#app',
+            })
+        </script>
+    </body>
+</html>

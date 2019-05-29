@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            @keyframes bounce-in{
+                0%{
+                    transform: scale(0)
+                }
+                50%{
+                    transform: scale(1.5)
+                }
+                100%{
+                    transform: scale(1)
+                }
+            }
+
+            .v-enter-active{
+                transform-origin: left center;
+                animation: bounce-in 1s;
+            }.v-leave-active {
+                transform-origin: left center;
+                animation: bounce-in 1s reverse;
+            }
+        </style>
+    </head>
+    <body> 
+        <div id="app">
+            <transition>
+                <div v-if="show">hello</div>
+            </transition>
+            <button  @click="handleClick">change</button>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    show: true
+                },
+                methods: {
+                    handleClick: function() {
+                        this.show = !this.show;
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

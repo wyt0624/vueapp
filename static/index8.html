@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <component :is="type"></component>
+            <button @click="handleClick">change</button>
+        </div>
+        <script>
+
+            Vue.component("click-one",{
+                template: "<div>click1</div>"
+            })
+            Vue.component("click-two",{
+                template: "<div>click2</div>"
+            })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    type: "click-one"
+                },
+                methods: {
+                    handleClick: function() {
+                        this.type = this.type === "click-one" ? "click-two" : "click-one";
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>
